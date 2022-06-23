@@ -38,6 +38,20 @@ class BubbleEdges {
   EdgeInsets get edgeInsets =>
       EdgeInsets.fromLTRB(left ?? 0, top ?? 0, right ?? 0, bottom ?? 0);
 
+  BubbleEdges copyWith({
+    double? left,
+    double? top,
+    double? right,
+    double? bottom,
+  }) {
+    return BubbleEdges.only(
+      left: left ?? this.left,
+      top: top ?? this.top,
+      right: right ?? this.right,
+      bottom: bottom ?? this.bottom,
+    );
+  }
+
   @override
   String toString() => 'BubbleEdges($left, $top, $right, $bottom)';
 }
