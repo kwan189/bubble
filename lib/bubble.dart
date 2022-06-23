@@ -1,8 +1,6 @@
 library bubble;
 
 import 'dart:math';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 part 'bubble_clipper.dart';
@@ -31,6 +29,7 @@ class Bubble extends StatelessWidget {
     double? nipHeight,
     double? nipOffset,
     double? nipRadius,
+    this.constraints,
     bool? stick,
     Color? color,
     Color? borderColor,
@@ -83,11 +82,13 @@ class Bubble extends StatelessWidget {
   final EdgeInsets margin;
   final AlignmentGeometry? alignment;
   final BubbleClipper bubbleClipper;
+  final BoxConstraints? constraints;
 
   @override
   Widget build(BuildContext context) => Container(
+        constraints: constraints,
         key: key,
-        alignment: alignment,
+        // alignment: alignment,
         margin: margin,
         child: CustomPaint(
           painter: BubblePainter(
